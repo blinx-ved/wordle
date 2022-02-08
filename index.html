@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>él word</h1>
+        <input id="text" type="text" placeholder="Click Here To Type">
+        <section>
+            <div class="wordContainer" id="word1">
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+            </div>
+            <div class="wordContainer" id="word2">
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+            </div>
+            <div class="wordContainer" id="word3">
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+            </div>
+            <div class="wordContainer" id="word4">
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+            </div>
+            <div class="wordContainer" id="word5">
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+            </div>
+            <div class="wordContainer" id="word6">
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+                <div><p></p></div>
+            </div>
+        </section>
+        <input id="playNext" type="button" value="play next game">
+    </body>
+    <script>
+        $( "#text" ).keypress(function(e) {
+            e.preventDefault();
+            $("#text").val("");
+            document.getElementById("word1").scrollIntoView();
+        });
+        var gameStatus = true;
+        $("#playNext").hide();
+        var day = new Date().getDate();
+        var wordList = ["BREAD", "APPLE", "NIGHT", "RIVER", "STEAM", "LEAVE", "GIANT", "MORAL", "YOUNG", "QUIET", "BROWN", "FALSE", "SPITE", "VITAL", "LASER", "HUMOR", "GUARD", "YACHT", "WRATH", "VIVID", "TRASH", "SUGAR", "RIVAL", "FLOUR", "EJECT", "BERRY", "COLOR", "SALON", "THIEF", "WORLD", "YEAST"]
+        var word = wordList[day];
+        var wordArray = Array.from(word);
+        var word1 = [{"dom":$("#word1 div:nth-child(1) p"), "parent":$("#word1 div:nth-child(1)")}, 
+                     {"dom":$("#word1 div:nth-child(2) p"), "parent":$("#word1 div:nth-child(2)")}, 
+                     {"dom":$("#word1 div:nth-child(3) p"), "parent":$("#word1 div:nth-child(3)")}, 
+                     {"dom":$("#word1 div:nth-child(4) p"), "parent":$("#word1 div:nth-child(4)")}, 
+                     {"dom":$("#word1 div:nth-child(5) p"), "parent":$("#word1 div:nth-child(5)")}];
+        var word2 = [{"dom":$("#word2 div:nth-child(1) p"), "parent":$("#word2 div:nth-child(1)")}, 
+                     {"dom":$("#word2 div:nth-child(2) p"), "parent":$("#word2 div:nth-child(2)")}, 
+                     {"dom":$("#word2 div:nth-child(3) p"), "parent":$("#word2 div:nth-child(3)")}, 
+                     {"dom":$("#word2 div:nth-child(4) p"), "parent":$("#word2 div:nth-child(4)")}, 
+                     {"dom":$("#word2 div:nth-child(5) p"), "parent":$("#word2 div:nth-child(5)")}];
+        var word3 = [{"dom":$("#word3 div:nth-child(1) p"), "parent":$("#word3 div:nth-child(1)")}, 
+                     {"dom":$("#word3 div:nth-child(2) p"), "parent":$("#word3 div:nth-child(2)")}, 
+                     {"dom":$("#word3 div:nth-child(3) p"), "parent":$("#word3 div:nth-child(3)")}, 
+                     {"dom":$("#word3 div:nth-child(4) p"), "parent":$("#word3 div:nth-child(4)")}, 
+                     {"dom":$("#word3 div:nth-child(5) p"), "parent":$("#word3 div:nth-child(5)")}];
+        var word4 = [{"dom":$("#word4 div:nth-child(1) p"), "parent":$("#word4 div:nth-child(1)")}, 
+                     {"dom":$("#word4 div:nth-child(2) p"), "parent":$("#word4 div:nth-child(2)")}, 
+                     {"dom":$("#word4 div:nth-child(3) p"), "parent":$("#word4 div:nth-child(3)")}, 
+                     {"dom":$("#word4 div:nth-child(4) p"), "parent":$("#word4 div:nth-child(4)")}, 
+                     {"dom":$("#word4 div:nth-child(5) p"), "parent":$("#word4 div:nth-child(5)")}];
+        var word5 = [{"dom":$("#word5 div:nth-child(1) p"), "parent":$("#word5 div:nth-child(1)")}, 
+                     {"dom":$("#word5 div:nth-child(2) p"), "parent":$("#word5 div:nth-child(2)")}, 
+                     {"dom":$("#word5 div:nth-child(3) p"), "parent":$("#word5 div:nth-child(3)")}, 
+                     {"dom":$("#word5 div:nth-child(4) p"), "parent":$("#word5 div:nth-child(4)")}, 
+                     {"dom":$("#word5 div:nth-child(5) p"), "parent":$("#word5 div:nth-child(5)")}];
+        var word6 = [{"dom":$("#word6 div:nth-child(1) p"), "parent":$("#word6 div:nth-child(1)")}, 
+                     {"dom":$("#word6 div:nth-child(2) p"), "parent":$("#word6 div:nth-child(2)")}, 
+                     {"dom":$("#word6 div:nth-child(3) p"), "parent":$("#word6 div:nth-child(3)")}, 
+                     {"dom":$("#word6 div:nth-child(4) p"), "parent":$("#word6 div:nth-child(4)")}, 
+                     {"dom":$("#word6 div:nth-child(5) p"), "parent":$("#word6 div:nth-child(5)")}];
+        var currentWordNum = 1;
+        var currentWord = word1;
+        var currentLetter = 1;
+        document.onkeydown = function (e) {
+            if(gameStatus == true){
+                if(e.keyCode <= 90 && e.keyCode >= 65){
+                    writeKey(String.fromCharCode(e.keyCode))
+                }else if(e.keyCode == 8){
+                    deleteKey();
+                }else if(e.keyCode == 13){
+                    checkWord();
+                }
+            }
+        };
+        function writeKey(key){
+            if(currentLetter <= 5){
+                currentWord[currentLetter-1].dom.html(key);
+                currentLetter ++;
+            }
+        }
+        function deleteKey(){
+            currentWord[currentLetter-2].dom.html("");
+            currentLetter --;
+        }
+        function checkWord(){
+            if(currentLetter == 6){
+                var currentGuess = "";
+                for(var x=0; x<5;x++){
+                    currentGuess += currentWord[x].dom.html();
+                    currentWord[x].parent.css("background-color", "#4a4a4a");
+                    for(var i=0;i<wordArray.length;i++){
+                        if(currentWord[x].dom.html() == wordArray[i]){
+                            currentWord[x].parent.css("background-color", "#b59f3b");
+                        }
+                    }
+                    if(currentWord[x].dom.html() == wordArray[x]){
+                        currentWord[x].parent.css("background-color", "#538d4e")
+                    }
+                }
+                if(currentGuess == word){
+                    alert("you win");
+                    gameStatus = false;
+                    $("#playNext").show();
+                }
+                if(currentWordNum>5){
+                    alert("you lose");
+                }else{
+                    currentWordNum ++;
+                    currentWord = eval("word" + currentWordNum);
+                    currentLetter = 1;
+                }
+            }
+        }
+        function clearBoard(){
+            for(var x=0; x<6; x++){
+                clearBoardWord = eval("word" + (x+1));
+                for(var i=0; i<clearBoardWord.length; i++){
+                    clearBoardWord[i].dom.html("");
+                    clearBoardWord[i].parent.css("background-color", "#171717");
+                }
+            }
+        }
+        $("#playNext").click(function(){
+            $("#playNext").hide();
+            gameStatus = true;
+            day ++;
+            word = wordList[day];
+            clearBoard();
+            currentWordNum = 1;
+            currentWord = word1;
+            currentLetter = 1;
+            wordArray = Array.from(word);
+        });
+    </script>
+</html>

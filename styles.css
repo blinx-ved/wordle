@@ -1,0 +1,52 @@
+body{
+    background-color: #171717;
+    color: white;
+    text-align: center;
+}
+h1{
+    font-size: 3em;
+}
+#text{
+    margin-bottom: 1em;
+}
+.wordContainer{
+    padding: 0 40% 1em 40%;
+    display: grid;
+    grid: auto / repeat(5, auto);
+    gap: 1em;
+}
+.wordContainer div{
+    background-color: #171717;
+    border: 2px #4a4a4a solid;
+    height: 3em;
+    position: relative;
+}
+.wordContainer div p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@media only screen and (max-width: 1500px) {
+    .wordContainer{
+        padding: 0 35% 1em 35%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .wordContainer{
+        padding: 0 30% 1em 30%;
+    }
+}
+@media only screen and (max-width: 750px) {
+    .wordContainer{
+        padding: 0 20% 1em 20%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .wordContainer{
+        padding: 0 10% 1em 10%;
+    }
+}
